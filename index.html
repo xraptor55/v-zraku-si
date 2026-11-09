@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071522">
+
   <title>V ZRAKU.SI | Zračno fotografiranje in snemanje</title>
+
   <meta name="description" content="Profesionalno fotografiranje in snemanje z dronom. Pregledi streh, 4K video in zračne fotografije.">
 
   <style>
@@ -292,17 +294,27 @@
       margin-bottom: 16px;
     }
 
+    /* FOTOGRAFIJA DRONA */
+
     .about-visual {
-      min-height: 300px;
+      height: 350px;
       border-radius: 18px;
       border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at center, rgba(25,211,197,.2), transparent 55%),
-        linear-gradient(145deg, #15364b, #0b1c2a);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 110px;
+      overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 15px 45px rgba(0,0,0,.25);
+    }
+
+    .about-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s;
+    }
+
+    .about-visual:hover img {
+      transform: scale(1.04);
     }
 
     .benefits {
@@ -672,7 +684,7 @@
       }
 
       .about-visual {
-        min-height: 220px;
+        height: 260px;
       }
     }
   </style>
@@ -697,8 +709,9 @@
     </div>
   </header>
 
-  <!-- UVOD -->
   <main>
+
+    <!-- UVOD -->
     <section class="hero" id="domov">
       <div class="container">
         <div class="hero-content">
@@ -730,7 +743,8 @@
           <div class="eyebrow">Kaj ponujamo</div>
           <h2>Naše <span>storitve</span></h2>
           <p>
-            Poskrbimo za kakovostne zračne posnetke, prilagojene vašim željam in potrebam.
+            Poskrbimo za kakovostne zračne posnetke,
+            prilagojene vašim željam in potrebam.
           </p>
         </div>
 
@@ -740,8 +754,8 @@
             <div class="service-icon">🏠</div>
             <h3>Pregled streh</h3>
             <p>
-              Detajlne fotografije strehe za pregled stanja, poškodb,
-              kritine in težje dostopnih mest.
+              Detajlne fotografije strehe za pregled stanja,
+              poškodb, kritine in težje dostopnih mest.
             </p>
           </div>
 
@@ -801,21 +815,21 @@
 
           <div>
             <div class="eyebrow">V ZRAKU.SI</div>
-            <h2>Nova perspektiva.<br><span style="color:var(--accent)">Nov pogled.</span></h2>
+
+            <h2>
+              Nova perspektiva.<br>
+              <span style="color:var(--accent)">Nov pogled.</span>
+            </h2>
 
             <p>
-              Z uporabo sodobne tehnologije dronov ustvarjamo kakovostne
-              fotografije in videoposnetke iz zraka.
+              Z uporabo sodobne tehnologije dronov ustvarjamo
+              kakovostne fotografije in videoposnetke iz zraka.
             </p>
 
             <p>
-              Ne glede na to, ali potrebujete pregled strehe, fotografije
-              nepremičnine ali atraktiven promocijski video, se prilagodimo
-              vašemu projektu.
-            </p>
-
-             <p>
-              Hitro in enostavno od naročanja do izvedbe projekta.
+              Ne glede na to, ali potrebujete pregled strehe,
+              fotografije nepremičnine ali atraktiven promocijski video,
+              se prilagodimo vašemu projektu.
             </p>
 
             <div class="benefits">
@@ -826,7 +840,14 @@
             </div>
           </div>
 
-          <div class="about-visual">🚁</div>
+          <!-- TUKAJ JE TVOJA FOTOGRAFIJA DRONA -->
+          <div class="about-visual">
+            <img
+              src="dron.jpg"
+              alt="Dron med snemanjem iz zraka"
+              loading="lazy"
+            >
+          </div>
 
         </div>
       </div>
@@ -840,13 +861,14 @@
           <div class="eyebrow">Pregled ponudbe</div>
           <h2>Naš <span>cenik</span></h2>
           <p>
-            Jasne in pregledne cene. Izberite storitev in preverite okvirno ceno.
+            Jasne in pregledne cene. Izberite storitev
+            in preverite okvirno ceno.
           </p>
         </div>
 
         <div class="pricing-grid">
 
-          <!-- PREGLED STREHE S SLIDERJEM -->
+          <!-- PREGLED STREHE -->
           <div class="price-card featured">
             <div class="service-icon">🏠</div>
 
@@ -884,7 +906,8 @@
             </div>
 
             <p class="pricing-info">
-              Obdelane fotografije.
+              Minimalna cena je 59 € pri površini do 100 m².
+              Nad 100 m² se cena povečuje linearno.
             </p>
           </div>
 
@@ -927,8 +950,8 @@
         </div>
 
         <p class="pricing-bottom">
-          Cene so informativne. Končna cena je lahko odvisna od lokacije,
-          zahtevnosti in pogojev izvedbe.
+          Cene so informativne. Končna cena je lahko odvisna
+          od lokacije, zahtevnosti in pogojev izvedbe.
         </p>
 
       </div>
@@ -942,7 +965,8 @@
           <div class="eyebrow">Stopimo v stik</div>
           <h2>Kontaktirajte <span>nas</span></h2>
           <p>
-            Imate vprašanje ali potrebujete ponudbo? Z veseljem vam pomagamo.
+            Imate vprašanje ali potrebujete ponudbo?
+            Z veseljem vam pomagamo.
           </p>
         </div>
 
@@ -966,7 +990,6 @@
               <div class="contact-label">Spletna stran</div>
               <a href="#domov">www.vzraku.si</a>
             </div>
-
           </div>
 
           <!-- OBRAZEC -->
@@ -1017,9 +1040,15 @@
               <div class="form-group">
                 <label for="storitev">Izberite storitev</label>
                 <select id="storitev" name="storitev">
-                  <option value="Vizualen pregled strehe">Vizualen pregled strehe</option>
-                  <option value="4K video snemanje">4K video snemanje</option>
-                  <option value="Fotografiranje iz zraka">Fotografiranje iz zraka</option>
+                  <option value="Vizualen pregled strehe">
+                    Vizualen pregled strehe
+                  </option>
+                  <option value="4K video snemanje">
+                    4K video snemanje
+                  </option>
+                  <option value="Fotografiranje iz zraka">
+                    Fotografiranje iz zraka
+                  </option>
                   <option value="Nepremičnine">Nepremičnine</option>
                   <option value="Poslovni objekti">Poslovni objekti</option>
                   <option value="Drugo">Drugo</option>
@@ -1039,15 +1068,21 @@
               <label class="consent">
                 <input type="checkbox" name="soglasje" value="Da" required>
                 <span>
-                  Strinjam se, da se moji podatki uporabijo za odgovor
-                  na poslano povpraševanje.
+                  Strinjam se, da se moji podatki uporabijo
+                  za odgovor na poslano povpraševanje.
                 </span>
               </label>
 
-              <!-- Skrito polje proti neželeni pošti -->
+              <!-- Zaščita pred neželeno pošto -->
               <div style="position:absolute;left:-9999px" aria-hidden="true">
                 <label for="honey">Ne izpolnjujte tega polja</label>
-                <input type="text" id="honey" name="_honey" tabindex="-1" autocomplete="off">
+                <input
+                  type="text"
+                  id="honey"
+                  name="_honey"
+                  tabindex="-1"
+                  autocomplete="off"
+                >
               </div>
 
               <button type="submit" class="btn" id="submitBtn">
@@ -1055,8 +1090,8 @@
               </button>
 
               <div class="success-message" id="successMessage">
-                ✓ Povpraševanje uspešno poslano! Hvala za vaše povpraševanje.
-                Kmalu vas bomo kontaktirali.
+                ✓ Povpraševanje uspešno poslano!
+                Hvala za vaše povpraševanje. Kmalu vas bomo kontaktirali.
               </div>
 
             </form>
@@ -1073,19 +1108,25 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- NOGA -->
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div>© <span id="year"></span> <strong>V ZRAKU.SI</strong> – Vse pravice pridržane.</div>
+        <div>
+          © <span id="year"></span>
+          <strong>V ZRAKU.SI</strong> – Vse pravice pridržane.
+        </div>
+
         <div>Zračno fotografiranje in snemanje</div>
       </div>
     </div>
   </footer>
 
   <script>
+
     // DINAMIČNI IZRAČUN CENE STREHE
 
     const roofSlider = document.getElementById("roofSlider");
@@ -1094,11 +1135,6 @@
 
     function updateRoofPrice() {
       const area = Number(roofSlider.value);
-
-      // 100 m² = 59 €
-      // 200 m² = 79 €
-      // Vsak dodatni m² nad 100 m² poveča ceno za 0,20 €.
-      // Minimalna cena je 59 €.
 
       let price = 59;
 
@@ -1115,16 +1151,16 @@
     updateRoofPrice();
 
 
-    // POŠILJANJE OBRAZCA BREZ ZAPUSTITVE SPLETNE STRANI
+    // POŠILJANJE OBRAZCA
 
     const contactForm = document.getElementById("contactForm");
     const submitBtn = document.getElementById("submitBtn");
     const successMessage = document.getElementById("successMessage");
-    const hiddenFrame = document.getElementById("skriti_odgovor");
 
     let formSending = false;
 
     contactForm.addEventListener("submit", function(event) {
+
       if (formSending) {
         event.preventDefault();
         return;
@@ -1135,17 +1171,17 @@
       }
 
       formSending = true;
+
       submitBtn.disabled = true;
       submitBtn.textContent = "Pošiljanje ...";
       submitBtn.style.opacity = "0.65";
 
       successMessage.style.display = "none";
 
-      // Obrazec se pošlje v skriti iframe.
-      // Obiskovalec ostane na glavni spletni strani.
-
       setTimeout(function() {
+
         successMessage.style.display = "block";
+
         contactForm.reset();
 
         submitBtn.disabled = false;
@@ -1158,7 +1194,9 @@
           behavior: "smooth",
           block: "nearest"
         });
+
       }, 1800);
+
     });
 
 
@@ -1166,6 +1204,7 @@
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
   </script>
 
 </body>
