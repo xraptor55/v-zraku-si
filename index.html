@@ -1,1133 +1,1048 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="V ZRAKU.SI – profesionalno fotografiranje in snemanje z dronom. Pregledi streh, nepremičnine, podjetja, dokumentiranje škode in snemanje po meri.">
-<meta name="theme-color" content="#101d2b">
-<title>V ZRAKU.SI | Pogled, ki pove več</title>
-
-<style>
-:root {
-  --navy:#101d2b;
-  --navy2:#172b3d;
-  --ink:#172536;
-  --muted:#657486;
-  --teal:#40c4c7;
-  --lime:#d8f36a;
-  --paper:#f7f9fa;
-  --white:#fff;
-  --line:#e5ebef;
-  --radius:22px;
-  --shadow:0 18px 55px rgba(16,29,43,.12);
-}
-
-* { box-sizing:border-box; }
-
-html { scroll-behavior:smooth; }
-
-body {
-  margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-  color:var(--ink);
-  background:var(--paper);
-  line-height:1.6;
-}
-
-a { color:inherit; text-decoration:none; }
-
-.wrap {
-  width:min(1160px,calc(100% - 44px));
-  margin:auto;
-}
-
-.topbar {
-  background:var(--navy);
-  color:#d5e0e8;
-  font-size:13px;
-}
-
-.topbar .wrap {
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  padding:9px 0;
-}
-
-header {
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-
-nav {
-  height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-}
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-weight:900;
-  letter-spacing:-.8px;
-  font-size:21px;
-}
-
-.brand-mark {
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background:var(--navy);
-  display:grid;
-  place-items:center;
-  color:var(--lime);
-}
-
-.brand small {
-  display:block;
-  font-size:9px;
-  letter-spacing:2.5px;
-  color:var(--muted);
-  font-weight:800;
-  margin-top:-4px;
-}
-
-.navlinks {
-  display:flex;
-  align-items:center;
-  gap:28px;
-  font-size:14px;
-  font-weight:650;
-  color:#445466;
-}
-
-.navlinks a:hover { color:#009da5; }
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:13px 19px;
-  border-radius:999px;
-  background:var(--teal);
-  color:var(--navy);
-  font-weight:850;
-  border:0;
-  cursor:pointer;
-  transition:.2s;
-  box-shadow:0 8px 22px rgba(64,196,199,.2);
-}
-
-.btn:hover {
-  transform:translateY(-2px);
-  filter:brightness(1.04);
-}
-
-.btn.dark {
-  background:var(--navy);
-  color:white;
-  box-shadow:none;
-}
-
-.btn.outline {
-  background:transparent;
-  border:1px solid rgba(255,255,255,.35);
-  color:white;
-  box-shadow:none;
-}
-
-/* UVOD */
-
-.hero {
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(ellipse at 85% 20%,rgba(64,196,199,.2),transparent 40%),
-    linear-gradient(135deg,#101d2b,#172b3d 65%,#0b1722);
-  color:white;
-  padding:92px 0 86px;
-}
-
-.hero:before {
-  content:"";
-  position:absolute;
-  width:620px;
-  height:620px;
-  border-radius:50%;
-  right:-110px;
-  top:-260px;
-  background:radial-gradient(circle,rgba(64,196,199,.22),transparent 68%);
-}
-
-.hero-grid {
-  position:relative;
-  z-index:1;
-  display:grid;
-  grid-template-columns:1.08fr .92fr;
-  align-items:center;
-  gap:54px;
-}
-
-.eyebrow {
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  color:var(--lime);
-  font-size:12px;
-  letter-spacing:2.3px;
-  font-weight:900;
-  text-transform:uppercase;
-}
-
-.eyebrow:before {
-  content:"";
-  width:24px;
-  height:2px;
-  background:var(--lime);
-}
-
-h1 {
-  font-size:clamp(42px,6vw,76px);
-  line-height:.99;
-  letter-spacing:-3.8px;
-  margin:22px 0 24px;
-}
-
-h1 span { color:var(--teal); }
-
-.hero p {
-  font-size:18px;
-  color:#c6d3dc;
-  max-width:580px;
-  margin:0 0 30px;
-}
-
-.hero-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.hero-note {
-  margin-top:36px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:#aabac6;
-  font-size:13px;
-}
-
-.dot {
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--lime);
-  box-shadow:0 0 0 5px rgba(216,243,106,.12);
-}
-
-/* DRON */
-
-.visual {
-  min-height:390px;
-  position:relative;
-  display:grid;
-  place-items:center;
-}
-
-.orbit {
-  position:absolute;
-  width:min(100%,420px);
-  aspect-ratio:1;
-  border:1px solid rgba(255,255,255,.17);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 38px rgba(255,255,255,.025),
-    0 0 0 76px rgba(255,255,255,.02);
-}
-
-.visual-card {
-  position:relative;
-  width:min(100%,410px);
-  aspect-ratio:1.12;
-  border-radius:28px;
-  background:linear-gradient(145deg,#29465a,#132738 62%,#0d1926);
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 35px 80px rgba(0,0,0,.35);
-  overflow:hidden;
-}
-
-.visual-card:before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(155deg,transparent 38%,rgba(64,196,199,.13)),
-    repeating-linear-gradient(0deg,transparent 0 42px,rgba(255,255,255,.045) 43px 44px),
-    repeating-linear-gradient(90deg,transparent 0 42px,rgba(255,255,255,.045) 43px 44px);
-}
-
-.scan {
-  position:absolute;
-  left:12%;
-  right:12%;
-  top:25%;
-  height:1px;
-  background:var(--lime);
-  box-shadow:0 0 18px var(--lime);
-  transform:rotate(-19deg);
-}
-
-.scan:after {
-  content:"";
-  position:absolute;
-  right:0;
-  top:-4px;
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:var(--lime);
-  box-shadow:0 0 16px var(--lime);
-}
-
-.drone {
-  position:absolute;
-  left:50%;
-  top:48%;
-  transform:translate(-50%,-50%);
-  width:210px;
-  height:130px;
-}
-
-.drone .body {
-  position:absolute;
-  left:78px;
-  top:48px;
-  width:54px;
-  height:31px;
-  border-radius:14px 14px 18px 18px;
-  background:linear-gradient(140deg,#e9f3f4,#8fa8b5);
-  box-shadow:0 10px 22px #07121d;
-}
-
-.drone .lens {
-  position:absolute;
-  left:99px;
-  top:73px;
-  width:13px;
-  height:13px;
-  border-radius:50%;
-  background:#0b1a27;
-  border:3px solid var(--teal);
-}
-
-.arm {
-  position:absolute;
-  left:28px;
-  top:59px;
-  width:155px;
-  height:9px;
-  border-radius:10px;
-  background:#b8cbd1;
-  transform:rotate(-18deg);
-}
-
-.arm.two { transform:rotate(18deg); }
-
-.prop {
-  position:absolute;
-  width:60px;
-  height:8px;
-  border-radius:50%;
-  border:2px solid #d7e5e8;
-  top:29px;
-  left:5px;
-}
-
-.prop.p2 { left:145px; }
-.prop.p3 { top:93px; left:5px; }
-.prop.p4 { top:93px; left:145px; }
-
-.drone:after {
-  content:"";
-  position:absolute;
-  left:102px;
-  top:88px;
-  width:2px;
-  height:42px;
-  background:linear-gradient(var(--teal),transparent);
-}
-
-.hud {
-  position:absolute;
-  bottom:22px;
-  left:22px;
-  right:22px;
-  display:flex;
-  justify-content:space-between;
-  color:#c6d9df;
-  font-size:10px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-
-.float-tag {
-  position:absolute;
-  background:#fff;
-  color:var(--navy);
-  padding:12px 16px;
-  border-radius:14px;
-  box-shadow:var(--shadow);
-  font-size:12px;
-  font-weight:850;
-}
-
-.float-tag.one { top:35px; right:-12px; }
-.float-tag.two { bottom:42px; left:-22px; }
-
-/* STORITVE */
-
-.section { padding:88px 0; }
-
-.section-head {
-  max-width:680px;
-  margin-bottom:38px;
-}
-
-.kicker {
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#009da5;
-  font-weight:900;
-}
-
-h2 {
-  font-size:clamp(30px,4vw,46px);
-  line-height:1.08;
-  letter-spacing:-1.8px;
-  margin:12px 0 14px;
-  color:var(--navy);
-}
-
-.section-head p {
-  color:var(--muted);
-  font-size:17px;
-  margin:0;
-}
-
-.services {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px;
-}
-
-.service {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:26px;
-  min-height:235px;
-  transition:.22s;
-}
-
-.service:hover {
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
-  border-color:transparent;
-}
-
-.icon {
-  width:48px;
-  height:48px;
-  border-radius:15px;
-  background:#e5f7f6;
-  color:#008f98;
-  display:grid;
-  place-items:center;
-  margin-bottom:23px;
-  font-size:23px;
-}
-
-.service h3 {
-  margin:0 0 9px;
-  font-size:19px;
-  letter-spacing:-.4px;
-  color:var(--navy);
-}
-
-.service p {
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* PREDNOSTI */
-
-.band {
-  background:#eaf3f4;
-  padding:64px 0;
-}
-
-.band-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-
-.checklist {
-  display:grid;
-  gap:15px;
-}
-
-.check {
-  display:flex;
-  gap:13px;
-  align-items:flex-start;
-  color:#405264;
-}
-
-.check b {
-  color:var(--navy);
-  display:block;
-  margin-bottom:2px;
-}
-
-.checkmark {
-  flex:0 0 25px;
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  background:var(--lime);
-  display:grid;
-  place-items:center;
-  color:var(--navy);
-  font-weight:900;
-  font-size:13px;
-}
-
-/* POSTOPEK */
-
-.steps {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.step {
-  padding:25px 0;
-  border-top:1px solid #cfd9df;
-}
-
-.step-no {
-  font-size:12px;
-  color:#009da5;
-  font-weight:900;
-  letter-spacing:1.5px;
-}
-
-.step h3 {
-  color:var(--navy);
-  margin:12px 0 8px;
-  font-size:20px;
-}
-
-.step p {
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* POZIV */
-
-.cta {
-  background:var(--navy);
-  color:white;
-  border-radius:30px;
-  padding:48px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:30px;
-}
-
-.cta h2 {
-  color:white;
-  margin:0 0 10px;
-  max-width:600px;
-}
-
-.cta p {
-  color:#bdcbd4;
-  margin:0;
-}
-
-.cta .btn { white-space:nowrap; }
-
-/* KONTAKT */
-
-.contact-grid {
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:50px;
-}
-
-.contact-info { color:var(--muted); }
-
-.contact-item {
-  padding:16px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.contact-item strong {
-  display:block;
-  color:var(--navy);
-  font-size:13px;
-  margin-bottom:3px;
-}
-
-.contact-item a {
-  color:#008f98;
-  font-weight:700;
-}
-
-form {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:28px;
-  box-shadow:0 10px 35px rgba(16,29,43,.05);
-}
-
-.form-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-label {
-  display:block;
-  font-size:12px;
-  font-weight:800;
-  color:#435365;
-  margin-bottom:6px;
-}
-
-input,select,textarea {
-  width:100%;
-  border:1px solid #dce4e9;
-  border-radius:11px;
-  padding:13px 14px;
-  font:inherit;
-  font-size:14px;
-  color:var(--ink);
-  background:#fbfcfd;
-  outline:none;
-}
-
-input:focus,select:focus,textarea:focus {
-  border-color:var(--teal);
-  box-shadow:0 0 0 3px rgba(64,196,199,.13);
-}
-
-textarea {
-  min-height:155px;
-  resize:vertical;
-}
-
-.field { margin-bottom:15px; }
-.full { grid-column:1/-1; }
-
-.consent {
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  font-size:11px;
-  color:var(--muted);
-  margin:4px 0 18px;
-}
-
-.consent input {
-  width:auto;
-  margin-top:3px;
-}
-
-.form-note {
-  font-size:11px;
-  color:#7a8995;
-  margin-top:12px;
-}
-
-footer {
-  background:#0b1722;
-  color:#aebdc7;
-  padding:30px 0;
-  font-size:12px;
-}
-
-footer .wrap {
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-footer strong { color:white; }
-
-.mobile-cta { display:none; }
-
-/* MOBILNI PRIKAZ */
-
-@media(max-width:850px) {
-  .hero-grid,.band-grid,.contact-grid {
-    grid-template-columns:1fr;
-  }
-
-  .hero { padding:68px 0 55px; }
-  .visual { min-height:340px; }
-  .services { grid-template-columns:repeat(2,1fr); }
-  .navlinks { gap:15px; }
-  .navlinks a:not(.btn) { display:none; }
-  .band-grid { gap:25px; }
-}
-
-@media(max-width:560px) {
-  .wrap { width:min(100% - 32px,1160px); }
-  .topbar .wrap { font-size:10px; }
-  nav { height:66px; }
-  .brand { font-size:18px; }
-  .navlinks .btn { padding:10px 13px; font-size:12px; }
-  h1 { letter-spacing:-2.5px; }
-  .hero p { font-size:16px; }
-  .visual { min-height:290px; }
-  .visual-card { width:92%; }
-  .drone { transform:translate(-50%,-50%) scale(.8); }
-  .float-tag.one { right:0; }
-  .float-tag.two { left:0; }
-  .section { padding:65px 0; }
-  .services,.steps { grid-template-columns:1fr; }
-  .service { min-height:0; }
-  .cta { padding:30px 24px; display:block; }
-  .cta .btn { margin-top:22px; }
-  form { padding:20px; }
-  .form-grid { grid-template-columns:1fr; }
-  .full { grid-column:auto; }
-  .mobile-cta {
-    display:block;
-    position:fixed;
-    bottom:12px;
-    left:12px;
-    right:12px;
-    z-index:30;
-  }
-  .mobile-cta .btn {
-    width:100%;
-    box-shadow:0 8px 30px rgba(0,0,0,.25);
-  }
-  footer { padding-bottom:90px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071827">
+
+  <title>V ZRAKU.SI | Profesionalno snemanje z dronom</title>
+
+  <meta name="description" content="Profesionalno fotografiranje in snemanje z dronom. Pregledi streh, nepremičnine, poslovni objekti, dokumentiranje škode in kreativni video posnetki.">
+
+  <style>
+    :root {
+      --bg: #071827;
+      --bg-light: #0d2638;
+      --card: #102c40;
+      --teal: #21d4c2;
+      --teal-dark: #12a99d;
+      --white: #f4f8fb;
+      --muted: #a9bac8;
+      --border: rgba(255,255,255,.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGACIJA */
+
+    header {
+      background: rgba(7,24,39,.95);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--teal);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-cta {
+      background: var(--teal);
+      color: #06202b !important;
+      padding: 10px 17px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    /* UVOD */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 75% 45%, rgba(33,212,194,.16), transparent 42%),
+        linear-gradient(130deg, #071827 15%, #0d2a40 100%);
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 95px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      margin-bottom: 25px;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: var(--teal);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 610px;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: .2s;
+      border: 1px solid var(--teal);
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #06202b;
+    }
+
+    .btn-primary:hover {
+      background: #5ce6d9;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: var(--teal);
+    }
+
+    .btn-outline:hover {
+      background: rgba(33,212,194,.1);
+    }
+
+    .drone-art {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 340px;
+      height: 220px;
+      opacity: .8;
+    }
+
+    .drone-body {
+      position: absolute;
+      left: 125px;
+      top: 91px;
+      width: 90px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 45px rgba(33,212,194,.5);
+    }
+
+    .drone-arm {
+      position: absolute;
+      width: 150px;
+      height: 5px;
+      background: #b6d5df;
+      top: 105px;
+      left: 95px;
+      transform: rotate(25deg);
+      border-radius: 5px;
+    }
+
+    .drone-arm.second {
+      transform: rotate(-25deg);
+    }
+
+    .rotor {
+      position: absolute;
+      width: 62px;
+      height: 7px;
+      border: 2px solid var(--teal);
+      border-radius: 50%;
+    }
+
+    .r1 { left: 53px; top: 58px; }
+    .r2 { right: 53px; top: 58px; }
+    .r3 { left: 53px; bottom: 47px; }
+    .r4 { right: 53px; bottom: 47px; }
+
+    .drone-camera {
+      position: absolute;
+      width: 20px;
+      height: 25px;
+      background: #d8f4f3;
+      border-radius: 5px;
+      left: 160px;
+      top: 119px;
+    }
+
+    /* SPLOŠNO */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 5vw, 43px);
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .section-heading h2 span {
+      color: var(--teal);
+    }
+
+    /* STORITVE */
+
+    .services {
+      background: var(--bg-light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 29px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--teal);
+    }
+
+    .service-icon {
+      font-size: 33px;
+      margin-bottom: 17px;
+    }
+
+    .service-card h3 {
+      font-size: 19px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PREDNOSTI */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 39px;
+      line-height: 1.2;
+      margin-bottom: 22px;
+    }
+
+    .about-text h2 span {
+      color: var(--teal);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 17px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      background: var(--card);
+      padding: 19px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+
+    .check {
+      color: var(--teal);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .benefit strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* POZIV */
+
+    .cta-band {
+      background: linear-gradient(110deg, #0e3a4b, #0c293d);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta-band h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .cta-band p {
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    /* KONTAKT */
+
+    .contact {
+      background: var(--bg-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 50px;
+    }
+
+    .contact-info h3 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-detail {
+      margin-bottom: 20px;
+    }
+
+    .contact-detail strong {
+      display: block;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .contact-detail a:hover {
+      color: var(--teal);
+    }
+
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .contact-form h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .form-intro {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      background: #081e2d;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--white);
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+    }
+
+    .form-group select option {
+      background: #081e2d;
+    }
+
+    .form-group textarea {
+      min-height: 145px;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #8095a4;
+    }
+
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .consent input {
+      margin-top: 4px;
+      accent-color: var(--teal);
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      border-radius: 7px;
+      background: var(--teal);
+      color: #06202b;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .submit-btn:hover {
+      background: #5ce6d9;
+      transform: translateY(-2px);
+    }
+
+    /* SKRITO POLJE ZA SPAM */
+
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* NOGA */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--teal);
+    }
+
+    /* TELEFONI */
+
+    @media (max-width: 850px) {
+      .drone-art {
+        opacity: .2;
+        right: -80px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 35px;
+      }
+
+      .contact-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .nav-links li:nth-child(1),
+      .nav-links li:nth-child(2) {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 9px 11px;
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+
+      .hero-content {
+        padding: 75px 0;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .contact-form {
+        padding: 22px;
+      }
+
+      .buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  <div class="wrap">
-    <span>FOTOGRAFIRANJE IN VIDEO IZ ZRAKA</span>
-    <span>Slovenija · Po dogovoru tudi drugje</span>
-  </div>
-</div>
+  <!-- NAVIGACIJA -->
 
-<header>
-  <nav class="wrap">
-    <a class="brand" href="#domov">
-      <span class="brand-mark">✣</span>
-      <span>V ZRAKU.SI<small>POGLED, KI POVE VEČ</small></span>
-    </a>
-    <div class="navlinks">
-      <a href="#storitve">Storitve</a>
-      <a href="#potek">Kako delamo</a>
-      <a href="#kontakt">Kontakt</a>
-      <a class="btn" href="#kontakt">Pošljite povpraševanje ↗</a>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#domov" class="logo">V ZRAKU<span>.SI</span></a>
+
+        <ul class="nav-links">
+          <li><a href="#domov">Domov</a></li>
+          <li><a href="#storitve">Storitve</a></li>
+          <li><a href="#o-nas">O nas</a></li>
+          <li><a href="#kontakt" class="nav-cta">Povpraševanje</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main>
+  <!-- UVOD -->
 
-<!-- UVOD -->
-<section class="hero" id="domov">
-  <div class="wrap hero-grid">
+  <main>
+    <section class="hero" id="domov">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Pogled iz nove perspektive</div>
 
-    <div>
-      <div class="eyebrow">Pogled iz nove perspektive</div>
+          <h1>
+            Vaša zgodba.<br>
+            Naš pogled <span>iz zraka.</span>
+          </h1>
 
-      <h1>Vaš projekt.<br><span>Naš pogled</span> iz zraka.</h1>
+          <p>
+            Profesionalno fotografiranje, snemanje in pregledi
+            z dronom. Ujamemo perspektive, ki jih s tal ni mogoče videti.
+            Od poslovnih projektov do osebnih idej.
+          </p>
 
-      <p>
-        Profesionalno fotografiranje in snemanje z dronom za strehe,
-        nepremičnine, podjetja ter dokumentiranje poškodb na objektih.
-      </p>
+          <div class="buttons">
+            <a href="#kontakt" class="btn btn-primary">
+              Pošljite povpraševanje
+            </a>
 
-      <div class="hero-actions">
-        <a class="btn" href="#kontakt">Pridobite ponudbo ↗</a>
-        <a class="btn outline" href="#storitve">Oglejte si storitve</a>
-      </div>
-
-      <div class="hero-note">
-        <span class="dot"></span>
-        Natančni posnetki. Jasna predstavitev. Pogled od zgoraj.
-      </div>
-    </div>
-
-    <div class="visual">
-      <div class="orbit"></div>
-
-      <div class="visual-card">
-        <div class="scan"></div>
-
-        <div class="drone">
-          <div class="arm"></div>
-          <div class="arm two"></div>
-          <div class="prop"></div>
-          <div class="prop p2"></div>
-          <div class="prop p3"></div>
-          <div class="prop p4"></div>
-          <div class="body"></div>
-          <div class="lens"></div>
-        </div>
-
-        <div class="hud">
-          <span>V ZRAKU.SI</span>
-          <span>VIEW · CAPTURE · CREATE</span>
+            <a href="#storitve" class="btn btn-outline">
+              Oglejte si storitve
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="float-tag one">↗ Pogled iz zraka</div>
-      <div class="float-tag two">⌖ Natančna dokumentacija</div>
-    </div>
+      <div class="drone-art" aria-hidden="true">
+        <div class="drone-arm"></div>
+        <div class="drone-arm second"></div>
+        <div class="rotor r1"></div>
+        <div class="rotor r2"></div>
+        <div class="rotor r3"></div>
+        <div class="rotor r4"></div>
+        <div class="drone-body"></div>
+        <div class="drone-camera"></div>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <!-- STORITVE -->
 
-<!-- STORITVE -->
-<section class="section" id="storitve">
-  <div class="wrap">
+    <section class="services" id="storitve">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Kaj ponujamo</div>
+          <h2>Storitve <span>iz zraka</span></h2>
+          <p>
+            Z dronom poskrbimo za kakovostne posnetke,
+            pregledne prikaze in drugačen pogled na vaš projekt.
+          </p>
+        </div>
 
-    <div class="section-head">
-      <div class="kicker">Kaj ponujamo</div>
-      <h2>Pravi posnetek za vsak namen.</h2>
-      <p>
-        Od pregleda strehe po neurju do privlačne predstavitve
-        nepremičnine ali podjetja – vse iz perspektive,
-        ki je s tal ne morete ujeti.
-      </p>
-    </div>
+        <div class="service-grid">
 
-    <div class="services">
+          <article class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Pregledi streh</h3>
+            <p>
+              Pregled streh po toči, neurjih in drugih poškodbah.
+              Posnetki težje dostopnih mest brez nepotrebnega
+              vzpenjanja na streho.
+            </p>
+          </article>
 
-      <article class="service">
-        <div class="icon">⌂</div>
-        <h3>Pregled streh po toči in neurju</h3>
-        <p>Fotografiranje strehe in težje dostopnih mest za hiter vizualni pregled po vremenskih dogodkih.</p>
-      </article>
+          <article class="service-card">
+            <div class="service-icon">🏡</div>
+            <h3>Nepremičnine</h3>
+            <p>
+              Atraktivne fotografije in videoposnetki hiš,
+              zemljišč, objektov in okolice za predstavitev
+              in prodajo nepremičnin.
+            </p>
+          </article>
 
-      <article class="service">
-        <div class="icon">▧</div>
-        <h3>Predstavitev nepremičnin</h3>
-        <p>Privlačni zračni posnetki hiš, zemljišč in poslovnih nepremičnin za oglase ter predstavitve.</p>
-      </article>
+          <article class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Poslovni objekti</h3>
+            <p>
+              Predstavitveni posnetki podjetij, poslovnih
+              prostorov, proizvodnih obratov in drugih objektov.
+            </p>
+          </article>
 
-      <article class="service">
-        <div class="icon">▥</div>
-        <h3>Fotografiranje podjetij</h3>
-        <p>Predstavitev poslovnih objektov, lokacij, proizvodnih površin in okolice iz zraka.</p>
-      </article>
+          <article class="service-card">
+            <div class="service-icon">📋</div>
+            <h3>Dokumentiranje škode</h3>
+            <p>
+              Fotografiranje in snemanje poškodb za
+              dokumentacijo, zavarovalniške postopke
+              in evidenco stanja objektov.
+            </p>
+          </article>
 
-      <article class="service">
-        <div class="icon">▤</div>
-        <h3>Dokumentiranje škode za zavarovalnice</h3>
-        <p>Pregledni foto- in videozapisi poškodb na objektih kot podpora pri dokumentiranju škodnega dogodka.</p>
-      </article>
+          <article class="service-card">
+            <div class="service-icon">🎬</div>
+            <h3>Kreativni foto in video</h3>
+            <p>
+              Dinamični zračni posnetki za promocijo,
+              družabna omrežja, dogodke, osebne projekte
+              in posebne ideje.
+            </p>
+          </article>
 
-      <article class="service">
-        <div class="icon">◎</div>
-        <h3>Kreativna fotografija in video</h3>
-        <p>Izstopajoči zračni posnetki za različne priložnosti, promocije in osebne projekte.</p>
-      </article>
+          <article class="service-card">
+            <div class="service-icon">👥</div>
+            <h3>Skupinsko fotografiranje</h3>
+            <p>
+              Posebne skupinske fotografije zaposlenih,
+              ekip, društev in skupin iz zanimive
+              ptičje perspektive.
+            </p>
+          </article>
 
-      <article class="service">
-        <div class="icon">♧</div>
-        <h3>Skupinske fotografije zaposlenih</h3>
-        <p>Skupinske fotografije ekip in zaposlenih iz zraka – za podjetja, dogodke in posebne priložnosti.</p>
-      </article>
-
-      <article class="service">
-        <div class="icon">🎥</div>
-        <h3>Snemanje po meri</h3>
-        <p>Video vsebine po vaših željah – od kratkih promocijskih posnetkov do celovitih predstavitev objektov, lokacij, podjetij in dogodkov.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- PREDNOSTI -->
-<section class="band">
-  <div class="wrap band-grid">
-
-    <div>
-      <div class="kicker">Več kot le fotografija</div>
-      <h2>Ko je pomembno videti celotno sliko.</h2>
-
-      <p style="color:var(--muted);max-width:520px">
-        Zračni posnetki omogočajo preglednejšo predstavitev objekta,
-        lokacije ali dogodka. Vsako naročilo prilagodimo namenu
-        uporabe in željam naročnika.
-      </p>
-
-      <a class="btn dark" href="#kontakt">
-        Pogovorimo se o vašem projektu ↗
-      </a>
-    </div>
-
-    <div class="checklist">
-
-      <div class="check">
-        <span class="checkmark">✓</span>
-        <div>
-          <b>Jasna vizualna predstavitev</b>
-          Fotografije in videoposnetki, ki pokažejo širši kontekst.
         </div>
       </div>
+    </section>
 
-      <div class="check">
-        <span class="checkmark">✓</span>
-        <div>
-          <b>Prilagoditev vašemu namenu</b>
-          Vsebino pripravimo glede na to, ali gre za pregled,
-          oglaševanje ali kreativni projekt.
+    <!-- O NAS -->
+
+    <section id="o-nas">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-text">
+            <div class="eyebrow">Zakaj V ZRAKU.SI</div>
+
+            <h2>
+              Več kot samo <span>pogled od zgoraj.</span>
+            </h2>
+
+            <p>
+              Vsak projekt je drugačen. Zato se pred snemanjem
+              pogovorimo o vaših željah, namenu posnetkov in
+              končnem rezultatu, ki ga želite doseči.
+            </p>
+
+            <p>
+              Ne glede na to, ali potrebujete pregled strehe,
+              predstavitev nepremičnine ali kreativen video,
+              skupaj poiščemo najboljšo rešitev.
+            </p>
+
+            <a href="#kontakt" class="btn btn-primary">
+              Dogovorimo se za projekt
+            </a>
+          </div>
+
+          <div class="benefits">
+
+            <div class="benefit">
+              <div class="check">✓</div>
+              <div>
+                <strong>Prilagoditev vašim željam</strong>
+                <p>
+                  Vsako snemanje prilagodimo namenu in
+                  zahtevam posameznega projekta.
+                </p>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="check">✓</div>
+              <div>
+                <strong>Drugačna perspektiva</strong>
+                <p>
+                  Zračni posnetki omogočajo preglednejši
+                  prikaz objektov, okolice in prostora.
+                </p>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="check">✓</div>
+              <div>
+                <strong>Dogovor brez obveznosti</strong>
+                <p>
+                  Opišite svojo idejo in pripravili bomo
+                  predlog izvedbe.
+                </p>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="check">✓</div>
+              <div>
+                <strong>Tudi snemanje po meri</strong>
+                <p>
+                  Imate posebno zamisel? Z veseljem
+                  prisluhnemo tudi nestandardnim projektom.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="check">
-        <span class="checkmark">✓</span>
-        <div>
-          <b>Dogovor brez zapletov</b>
-          Najprej uskladimo lokacijo, namen, obseg in želeni končni material.
-        </div>
-      </div>
+    <!-- POZIV -->
 
-    </div>
-  </div>
-</section>
-
-<!-- POSTOPEK -->
-<section class="section" id="potek">
-  <div class="wrap">
-
-    <div class="section-head">
-      <div class="kicker">Preprosto in pregledno</div>
-      <h2>Od prvega sporočila do končnih posnetkov.</h2>
-      <p>Vsak projekt se začne z vašimi željami. Skupaj določimo najboljši način izvedbe.</p>
-    </div>
-
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-no">01 / POVPRAŠEVANJE</div>
-        <h3>Povejte nam, kaj potrebujete</h3>
-        <p>Opišite objekt, lokacijo, namen fotografiranja ali snemanja in želeni rok.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-no">02 / DOGOVOR</div>
-        <h3>Uskladimo izvedbo</h3>
-        <p>Preverimo možnosti, vremenske razmere, varnost in morebitne omejitve letenja.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-no">03 / POSNETKI</div>
-        <h3>Prejmete dogovorjeni material</h3>
-        <p>Po izvedbi prejmete izbrane fotografije oziroma video v dogovorjeni obliki.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- KONTAKT -->
-<section class="section" id="kontakt" style="padding-top:15px">
-  <div class="wrap">
-
-    <div class="cta">
-      <div>
-        <div class="kicker" style="color:var(--lime)">Imate projekt?</div>
-        <h2>Ujemimo pravi pogled iz zraka.</h2>
-        <p>Pošljite povpraševanje in skupaj preverimo možnosti izvedbe.</p>
-      </div>
-
-      <a class="btn" href="#povprasevanje">Pošljite povpraševanje ↗</a>
-    </div>
-
-    <div class="contact-grid" style="margin-top:55px">
-
-      <div class="contact-info">
-        <div class="kicker">Stopimo v stik</div>
-        <h2>Začnimo z vašim projektom.</h2>
-
+    <section class="cta-band">
+      <div class="container">
+        <h2>Imate idejo? Poglejmo jo iz zraka.</h2>
         <p>
-          Izpolnite obrazec in odgovorili vam bomo
-          v najkrajšem možnem času.
+          Pošljite nam nekaj informacij o projektu.
+          Skupaj bomo našli pravo rešitev.
         </p>
-
-        <div class="contact-item">
-          <strong>Podjetje</strong>
-          V ZRAKU.SI
-        </div>
-
-        <div class="contact-item">
-          <strong>E-pošta</strong>
-          <a href="mailto:xraptor55@gmail.com">xraptor55@gmail.com</a>
-        </div>
-
-        <p style="font-size:12px;margin-top:18px">
-          Delujemo po predhodnem dogovoru. Izvedba je odvisna
-          od vremena, lokacije in veljavnih pravil za izvajanje
-          letov z dronom.
-        </p>
+        <a href="#kontakt" class="btn btn-primary">
+          Pošljite povpraševanje
+        </a>
       </div>
+    </section>
 
-      <!-- OBRAZEC ZA POŠILJANJE POVPRAŠEVANJ -->
-      <form
-        id="povprasevanje"
-        action="https://formsubmit.co/xraptor55@gmail.com"
-        method="POST"
-      >
+    <!-- KONTAKT -->
 
-        <input type="hidden" name="_subject" value="Novo povpraševanje – V ZRAKU.SI">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
+    <section class="contact" id="kontakt">
+      <div class="container">
 
-        <!-- Skrito polje za zaščito pred neželeno pošto -->
-        <input type="text" name="_honey" style="display:none">
-
-        <div class="form-grid">
-
-          <div class="field">
-            <label for="ime">Ime in priimek *</label>
-            <input
-              id="ime"
-              name="ime"
-              autocomplete="name"
-              required
-              placeholder="Vaše ime"
-            >
-          </div>
-
-          <div class="field">
-            <label for="email">E-pošta *</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-              placeholder="ime@podjetje.si"
-            >
-          </div>
-
-          <div class="field">
-            <label for="telefon">Telefon</label>
-            <input
-              id="telefon"
-              name="telefon"
-              type="tel"
-              autocomplete="tel"
-              placeholder="Vaša telefonska številka"
-            >
-          </div>
-
-          <div class="field">
-            <label for="storitev">Zanimam se za</label>
-            <select id="storitev" name="storitev">
-              <option>Pregled strehe po toči / neurju</option>
-              <option>Predstavitev nepremičnine</option>
-              <option>Fotografiranje podjetja</option>
-              <option>Dokumentiranje škode</option>
-              <option>Kreativna fotografija / video</option>
-              <option>Skupinska fotografija zaposlenih</option>
-              <option>Snemanje po meri</option>
-              <option>Drugo</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label for="sporocilo">Opišite svoj projekt *</label>
-            <textarea
-              id="sporocilo"
-              name="sporocilo"
-              required
-              placeholder="Napišite, kaj potrebujete, kje se nahaja projekt, kaj želite fotografirati ali posneti, kakšne so vaše želje in morebitne posebnosti ..."
-            ></textarea>
-          </div>
-
+        <div class="section-heading">
+          <div class="eyebrow">Stopimo v stik</div>
+          <h2>Pošljite <span>povpraševanje</span></h2>
+          <p>
+            Opišite, kaj potrebujete. Ni treba, da imate
+            vse podrobnosti že pripravljene.
+          </p>
         </div>
 
-        <label class="consent">
-          <input
-            type="checkbox"
-            name="soglasje"
-            value="da"
-            required
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <h3>Imate vprašanje ali idejo?</h3>
+
+            <p>
+              Pišite nam in predstavite svoj projekt.
+              Odgovorili vam bomo in se dogovorili
+              o možnostih izvedbe.
+            </p>
+
+            <div class="contact-detail">
+              <strong>E-pošta</strong>
+              <a href="mailto:xraptor55@gmail.com">
+                xraptor55@gmail.com
+              </a>
+            </div>
+
+            <div class="contact-detail">
+              <strong>Področje dela</strong>
+              <span>Po dogovoru</span>
+            </div>
+
+            <div class="contact-detail">
+              <strong>Snemanje po meri</strong>
+              <span>
+                Sprejemamo tudi posebne in individualne projekte.
+              </span>
+            </div>
+          </div>
+
+          <form
+            class="contact-form"
+            id="povprasevanje"
+            action="https://script.google.com/macros/s/AKfycbwrEFWuDS_xHNO1gfG8oov_CbXcH7DY45fVyCPbgwRnmc2GXfRNBuub9KYZpV6L1rZyiw/exec"
+            method="POST"
+            accept-charset="UTF-8"
           >
-          <span>
-            Strinjam se, da se navedeni podatki uporabijo
-            za odgovor na moje povpraševanje. *
-          </span>
-        </label>
 
-        <button class="btn dark" type="submit">
-          Pošlji povpraševanje ↗
-        </button>
+            <h3>Opišite svoj projekt</h3>
 
-        <div class="form-note">
-          Po oddaji bomo vaše povpraševanje prejeli
-          na e-poštni naslov xraptor55@gmail.com.
+            <p class="form-intro">
+              Polja z zvezdico (*) so obvezna.
+            </p>
+
+            <!-- Skrito polje za zaščito pred neželenimi oddajami -->
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">To polje pustite prazno</label>
+              <input
+                type="text"
+                id="website"
+                name="_honey"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="ime">Ime in priimek *</label>
+                <input
+                  type="text"
+                  id="ime"
+                  name="ime"
+                  placeholder="Vaše ime"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-pošta *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="vas@email.si"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="telefon">Telefon</label>
+                <input
+                  type="tel"
+                  id="telefon"
+                  name="telefon"
+                  placeholder="Vaša telefonska številka"
+                  autocomplete="tel"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="storitev">Vrsta storitve</label>
+                <select id="storitev" name="storitev">
+                  <option value="">Izberite storitev</option>
+                  <option value="Pregled strehe">Pregled strehe</option>
+                  <option value="Nepremičnine">Nepremičnine</option>
+                  <option value="Poslovni objekti">Poslovni objekti</option>
+                  <option value="Dokumentiranje škode">Dokumentiranje škode</option>
+                  <option value="Kreativni foto in video">Kreativni foto in video</option>
+                  <option value="Skupinsko fotografiranje">Skupinsko fotografiranje</option>
+                  <option value="Snemanje po meri">Snemanje po meri</option>
+                  <option value="Drugo">Drugo</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="sporocilo">Opis projekta *</label>
+              <textarea
+                id="sporocilo"
+                name="sporocilo"
+                placeholder="Opišite, kaj bi želeli fotografirati ali posneti, kje se projekt nahaja in kakšen rezultat pričakujete ..."
+                required
+              ></textarea>
+            </div>
+
+            <label class="consent">
+              <input
+                type="checkbox"
+                name="soglasje"
+                value="Da"
+                required
+              >
+              <span>
+                Strinjam se, da se moji podatki uporabijo
+                za odgovor na poslano povpraševanje.
+              </span>
+            </label>
+
+            <button type="submit" class="submit-btn">
+              POŠLJI POVPRAŠEVANJE
+            </button>
+
+          </form>
+
         </div>
+      </div>
+    </section>
+  </main>
 
-      </form>
+  <!-- NOGA -->
 
+  <footer>
+    <div class="container">
+      © <span id="leto"></span>
+      <strong>V ZRAKU.SI</strong> |
+      Pogled iz nove perspektive.
     </div>
-  </div>
-</section>
+  </footer>
 
-</main>
-
-<footer>
-  <div class="wrap">
-    <div><strong>V ZRAKU.SI</strong> · Pogled, ki pove več</div>
-    <div>© <span id="year"></span> V ZRAKU.SI · Vse pravice pridržane</div>
-    <div>Fotografiranje in video iz zraka</div>
-  </div>
-</footer>
-
-<div class="mobile-cta">
-  <a class="btn" href="#kontakt">Pošljite povpraševanje ↗</a>
-</div>
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("leto").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
