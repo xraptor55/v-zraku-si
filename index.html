@@ -439,6 +439,32 @@
       margin-bottom: 23px;
     }
 
+    .form-success {
+      display: none;
+      background: rgba(33,212,194,.12);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0 22px;
+    }
+
+    .form-success p {
+      color: var(--white);
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .form-error {
+      display: none;
+      background: rgba(255,90,90,.1);
+      border: 1px solid #ff7777;
+      color: #ffaaaa;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -516,9 +542,14 @@
       transition: .2s;
     }
 
-    .submit-btn:hover {
+    .submit-btn:hover:not(:disabled) {
       background: #5ce6d9;
       transform: translateY(-2px);
+    }
+
+    .submit-btn:disabled {
+      opacity: .65;
+      cursor: wait;
     }
 
     /* SKRITO POLJE ZA SPAM */
@@ -529,6 +560,15 @@
       width: 1px;
       height: 1px;
       overflow: hidden;
+    }
+
+    /* SKRITI IFRAME */
+
+    #skriti_odgovor {
+      display: none;
+      width: 0;
+      height: 0;
+      border: 0;
     }
 
     /* NOGA */
@@ -911,11 +951,19 @@
             </div>
           </div>
 
+          <!-- SKRITI IFRAME: stran ostane odprta -->
+          <iframe
+            name="skriti_odgovor"
+            id="skriti_odgovor"
+            title="Odgovor obrazca"
+          ></iframe>
+
           <form
             class="contact-form"
             id="povprasevanje"
             action="https://script.google.com/macros/s/AKfycbwrEFWuDS_xHNO1gfG8oov_CbXcH7DY45fVyCPbgwRnmc2GXfRNBuub9KYZpV6L1rZyiw/exec"
             method="POST"
+            target="skriti_odgovor"
             accept-charset="UTF-8"
           >
 
@@ -925,7 +973,33 @@
               Polja z zvezdico (*) so obvezna.
             </p>
 
-            <!-- Skrito polje za zaščito pred neželenimi oddajami -->
+            <!-- POTRDITVENO SPOROČILO -->
+
+            <div
+              id="uspesno-sporocilo"
+              class="form-success"
+              role="status"
+              aria-live="polite"
+            >
+              <strong>✓ Povpraševanje uspešno poslano!</strong>
+              <p>
+                Hvala za vaše povpraševanje. Kmalu vas bomo kontaktirali.
+              </p>
+            </div>
+
+            <!-- MOREBITNA NAPAKA -->
+
+            <div
+              id="napaka-sporocilo"
+              class="form-error"
+              role="alert"
+            >
+              Pri oddaji je prišlo do težave. Poskusite znova
+              ali nam pišite na xraptor55@gmail.com.
+            </div>
+
+            <!-- SKRITO POLJE ZA SPAM -->
+
             <div class="honeypot" aria-hidden="true">
               <label for="website">To polje pustite prazno</label>
               <input
@@ -1039,9 +1113,71 @@
     </div>
   </footer>
 
+  <!-- JAVASCRIPT -->
+
   <script>
     document.getElementById("leto").textContent =
       new Date().getFullYear();
+
+    const obrazec = document.getElementById("povprasevanje");
+    const sporocilo = document.getElementById("uspesno-sporocilo");
+    const napaka = document.getElementById("napaka-sporocilo");
+    const gumb = obrazec.querySelector('button[type="submit"]');
+    const iframe = document.getElementById("skriti_odgovor");
+
+    let oddajaVTeKu = false;
+    let casovnik = null;
+
+    obrazec.addEventListener("submit", function(event) {
+
+      if (!obrazec.reportValidity()) {
+        event.preventDefault();
+        return;
+      }
+
+      if (oddajaVTeKu) {
+        event.preventDefault();
+        return;
+      }
+
+      oddajaVTeKu = true;
+
+      sporocilo.style.display = "none";
+      napaka.style.display = "none";
+
+      gumb.disabled = true;
+      gumb.textContent = "POŠILJANJE ...";
+
+      // Obrazec se pošlje v skriti iframe.
+      // Glavna stran ostane odprta.
+
+      clearTimeout(casovnik);
+
+      // Čas za pošiljanje podatkov Googlu.
+      casovnik = setTimeout(function() {
+
+        sporocilo.style.display = "block";
+
+        sporocilo.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+        obrazec.reset();
+
+        gumb.disabled = false;
+        gumb.textContent = "POŠLJI POVPRAŠEVANJE";
+
+        oddajaVTeKu = false;
+
+      }, 1800);
+
+    });
+
+    // Če se skriti iframe naloži z odgovorom, to pomeni,
+    // da je bila zahteva obdelana. Ne razkriva pa nam
+    // zanesljivo, ali je e-pošta že prispela v nabiralnik.
+
   </script>
 
 </body>
