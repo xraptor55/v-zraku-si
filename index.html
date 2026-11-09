@@ -4,48 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071827">
-
-  <title>V ZRAKU.SI | Profesionalno snemanje z dronom</title>
-
-  <meta name="description" content="Profesionalno fotografiranje in snemanje z dronom. Pregledi streh, nepremičnine, poslovni objekti, dokumentiranje škode in kreativni video posnetki.">
+  <meta name="theme-color" content="#071522">
+  <title>V ZRAKU.SI | Zračno fotografiranje in snemanje</title>
+  <meta name="description" content="Profesionalno fotografiranje in snemanje z dronom. Pregledi streh, 4K video in zračne fotografije.">
 
   <style>
     :root {
-      --bg: #071827;
-      --bg-light: #0d2638;
-      --card: #102c40;
-      --teal: #21d4c2;
-      --teal-dark: #12a99d;
-      --white: #f4f8fb;
-      --muted: #a9bac8;
-      --border: rgba(255,255,255,.12);
+      --bg: #071522;
+      --bg-light: #0d2030;
+      --card: #102638;
+      --accent: #19d3c5;
+      --accent-dark: #0aa99f;
+      --text: #f4f8fb;
+      --muted: #a8bac8;
+      --border: rgba(255,255,255,.10);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
-      color: var(--white);
-      line-height: 1.65;
+      color: var(--text);
+      line-height: 1.6;
     }
 
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    button, input, textarea, select {
-      font: inherit;
     }
 
     .container {
@@ -56,197 +51,163 @@
     /* NAVIGACIJA */
 
     header {
-      background: rgba(7,24,39,.95);
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      background: rgba(7,21,34,.95);
       backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
       min-height: 76px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      align-items: center;
+      gap: 20px;
     }
 
     .logo {
       font-size: 25px;
       font-weight: 900;
       letter-spacing: 1px;
+      white-space: nowrap;
     }
 
     .logo span {
-      color: var(--teal);
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 27px;
-      list-style: none;
+      gap: 26px;
     }
 
     .nav-links a {
       color: var(--muted);
       font-size: 14px;
-      transition: color .2s;
+      font-weight: bold;
+      transition: .2s;
     }
 
     .nav-links a:hover {
-      color: var(--teal);
+      color: var(--accent);
     }
 
-    .nav-cta {
-      background: var(--teal);
-      color: #06202b !important;
+    .nav-links .nav-contact {
+      background: var(--accent);
+      color: #061923;
       padding: 10px 17px;
-      border-radius: 7px;
-      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .nav-links .nav-contact:hover {
+      background: white;
+      color: #061923;
     }
 
     /* UVOD */
 
     .hero {
-      min-height: 650px;
+      min-height: 590px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 75% 45%, rgba(33,212,194,.16), transparent 42%),
-        linear-gradient(130deg, #071827 15%, #0d2a40 100%);
+        radial-gradient(ellipse at 80% 45%, rgba(25,211,197,.15), transparent 40%),
+        linear-gradient(135deg, #071522, #102d40);
     }
 
     .hero-content {
       max-width: 720px;
-      padding: 95px 0;
+      padding: 100px 0;
       position: relative;
       z-index: 2;
     }
 
     .eyebrow {
-      color: var(--teal);
+      color: var(--accent);
       font-size: 13px;
       font-weight: bold;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 76px);
+      font-size: clamp(40px, 6vw, 68px);
       line-height: 1.08;
-      margin-bottom: 25px;
-      letter-spacing: -2px;
+      margin-bottom: 24px;
     }
 
     h1 span {
-      color: var(--teal);
+      color: var(--accent);
     }
 
     .hero p {
       color: var(--muted);
       font-size: 18px;
-      max-width: 610px;
-      margin-bottom: 34px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+      max-width: 600px;
+      margin-bottom: 32px;
     }
 
     .btn {
       display: inline-block;
-      padding: 14px 23px;
-      border-radius: 7px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #061923;
       font-weight: bold;
       transition: .2s;
-      border: 1px solid var(--teal);
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
     }
 
-    .btn-primary {
-      background: var(--teal);
-      color: #06202b;
-    }
-
-    .btn-primary:hover {
-      background: #5ce6d9;
+    .btn:hover {
+      background: white;
       transform: translateY(-2px);
     }
 
-    .btn-outline {
-      color: var(--teal);
-    }
-
-    .btn-outline:hover {
-      background: rgba(33,212,194,.1);
-    }
-
-    .drone-art {
+    .hero-decoration {
       position: absolute;
-      right: 5%;
+      right: 7%;
       top: 50%;
       transform: translateY(-50%);
-      width: 340px;
-      height: 220px;
-      opacity: .8;
-    }
-
-    .drone-body {
-      position: absolute;
-      left: 125px;
-      top: 91px;
-      width: 90px;
-      height: 32px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(25,211,197,.2);
       border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 45px rgba(33,212,194,.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .drone-arm {
+    .hero-decoration::before,
+    .hero-decoration::after {
+      content: "";
       position: absolute;
-      width: 150px;
-      height: 5px;
-      background: #b6d5df;
-      top: 105px;
-      left: 95px;
-      transform: rotate(25deg);
-      border-radius: 5px;
-    }
-
-    .drone-arm.second {
-      transform: rotate(-25deg);
-    }
-
-    .rotor {
-      position: absolute;
-      width: 62px;
-      height: 7px;
-      border: 2px solid var(--teal);
+      border: 1px solid rgba(25,211,197,.15);
       border-radius: 50%;
     }
 
-    .r1 { left: 53px; top: 58px; }
-    .r2 { right: 53px; top: 58px; }
-    .r3 { left: 53px; bottom: 47px; }
-    .r4 { right: 53px; bottom: 47px; }
-
-    .drone-camera {
-      position: absolute;
-      width: 20px;
-      height: 25px;
-      background: #d8f4f3;
-      border-radius: 5px;
-      left: 160px;
-      top: 119px;
+    .hero-decoration::before {
+      inset: 30px;
     }
 
-    /* SPLOŠNO */
+    .hero-decoration::after {
+      inset: 65px;
+    }
+
+    .drone-icon {
+      font-size: 105px;
+      z-index: 1;
+      filter: drop-shadow(0 0 25px rgba(25,211,197,.35));
+    }
+
+    /* SPLOŠNI RAZDELKI */
 
     section {
       padding: 90px 0;
@@ -254,50 +215,46 @@
 
     .section-heading {
       text-align: center;
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto 48px;
     }
 
     .section-heading h2 {
-      font-size: clamp(30px, 5vw, 43px);
-      margin-bottom: 15px;
+      font-size: clamp(30px, 4vw, 42px);
+      margin-bottom: 14px;
     }
 
     .section-heading p {
       color: var(--muted);
     }
 
-    .section-heading h2 span {
-      color: var(--teal);
+    .section-heading span {
+      color: var(--accent);
     }
 
     /* STORITVE */
 
-    .services {
-      background: var(--bg-light);
-    }
-
-    .service-grid {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
 
     .service-card {
       background: var(--card);
-      padding: 29px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      transition: transform .25s, border-color .25s;
+      padding: 30px;
+      border-radius: 14px;
+      transition: .25s;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
-      border-color: var(--teal);
+      border-color: var(--accent);
     }
 
     .service-icon {
-      font-size: 33px;
+      font-size: 35px;
       margin-bottom: 17px;
     }
 
@@ -311,78 +268,174 @@
       font-size: 14px;
     }
 
-    /* PREDNOSTI */
+    /* O NAS */
 
-    .about-grid {
+    .about {
+      background: var(--bg-light);
+    }
+
+    .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 55px;
+      gap: 50px;
       align-items: center;
     }
 
-    .about-text h2 {
-      font-size: 39px;
+    .about-content h2 {
+      font-size: 38px;
       line-height: 1.2;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
-    .about-text h2 span {
-      color: var(--teal);
-    }
-
-    .about-text p {
+    .about-content p {
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+    }
+
+    .about-visual {
+      min-height: 300px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at center, rgba(25,211,197,.2), transparent 55%),
+        linear-gradient(145deg, #15364b, #0b1c2a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 110px;
     }
 
     .benefits {
       display: grid;
-      gap: 17px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 25px;
     }
 
     .benefit {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-      background: var(--card);
-      padding: 19px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-    }
-
-    .check {
-      color: var(--teal);
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .benefit strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .benefit p {
-      color: var(--muted);
+      color: var(--text);
       font-size: 14px;
     }
 
-    /* POZIV */
-
-    .cta-band {
-      background: linear-gradient(110deg, #0e3a4b, #0c293d);
-      text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .benefit span {
+      color: var(--accent);
+      margin-right: 7px;
     }
 
-    .cta-band h2 {
-      font-size: clamp(28px, 5vw, 42px);
-      margin-bottom: 15px;
+    /* CENIK */
+
+    .pricing {
+      background: var(--bg);
     }
 
-    .cta-band p {
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .price-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 30px rgba(25,211,197,.08);
+    }
+
+    .price-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .price-description {
       color: var(--muted);
-      margin-bottom: 26px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--accent);
+      margin-top: auto;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .slider-area {
+      margin: 22px 0 10px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .slider-label strong {
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .slider-limits {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .dynamic-price {
+      font-size: 43px;
+      font-weight: 900;
+      color: var(--accent);
+      margin-top: 18px;
+    }
+
+    .dynamic-price small {
+      font-size: 15px;
+      font-weight: normal;
+      color: var(--muted);
+    }
+
+    .pricing-info {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .pricing-bottom {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 28px;
     }
 
     /* KONTAKT */
@@ -394,75 +447,57 @@
     .contact-grid {
       display: grid;
       grid-template-columns: .8fr 1.2fr;
-      gap: 50px;
+      gap: 35px;
+      align-items: start;
     }
 
-    .contact-info h3 {
-      font-size: 25px;
-      margin-bottom: 15px;
+    .contact-details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 14px;
     }
 
-    .contact-info > p {
-      color: var(--muted);
-      margin-bottom: 28px;
+    .contact-details h3 {
+      font-size: 23px;
+      margin-bottom: 22px;
     }
 
-    .contact-detail {
-      margin-bottom: 20px;
+    .contact-item {
+      margin-bottom: 22px;
     }
 
-    .contact-detail strong {
-      display: block;
-      color: var(--teal);
-      margin-bottom: 4px;
+    .contact-item .contact-label {
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
     }
 
-    .contact-detail a:hover {
-      color: var(--teal);
+    .contact-item a {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 17px;
+      overflow-wrap: anywhere;
     }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    /* OBRAZEC */
 
     .contact-form {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
       padding: 30px;
+      border-radius: 14px;
     }
 
     .contact-form h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .form-intro {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 23px;
-    }
-
-    .form-success {
-      display: none;
-      background: rgba(33,212,194,.12);
-      border: 1px solid var(--teal);
-      color: var(--teal);
-      padding: 15px;
-      border-radius: 8px;
-      margin: 15px 0 22px;
-    }
-
-    .form-success p {
-      color: var(--white);
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    .form-error {
-      display: none;
-      background: rgba(255,90,90,.1);
-      border: 1px solid #ff7777;
-      color: #ffaaaa;
-      padding: 12px;
-      border-radius: 8px;
-      margin: 15px 0;
+      font-size: 23px;
+      margin-bottom: 20px;
     }
 
     .form-row {
@@ -472,47 +507,43 @@
     }
 
     .form-group {
-      margin-bottom: 17px;
+      margin-bottom: 16px;
     }
 
     .form-group label {
       display: block;
+      font-size: 13px;
       margin-bottom: 7px;
-      font-size: 14px;
-      font-weight: bold;
+      color: var(--muted);
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 13px 14px;
-      background: #081e2d;
+      padding: 13px;
+      background: #071522;
       border: 1px solid var(--border);
       border-radius: 7px;
-      color: var(--white);
-      outline: none;
-      transition: border-color .2s;
+      color: white;
+      font-family: inherit;
+      font-size: 14px;
     }
 
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: var(--teal);
-    }
-
-    .form-group select option {
-      background: #081e2d;
+      outline: none;
+      border-color: var(--accent);
     }
 
     .form-group textarea {
-      min-height: 145px;
+      min-height: 120px;
       resize: vertical;
     }
 
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #8095a4;
+    .form-group select option {
+      background: #071522;
     }
 
     .consent {
@@ -526,131 +557,109 @@
 
     .consent input {
       margin-top: 4px;
-      accent-color: var(--teal);
     }
 
-    .submit-btn {
+    .contact-form .btn {
       width: 100%;
-      border: 0;
-      padding: 15px;
-      border-radius: 7px;
-      background: var(--teal);
-      color: #06202b;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      transition: .2s;
     }
 
-    .submit-btn:hover:not(:disabled) {
-      background: #5ce6d9;
-      transform: translateY(-2px);
-    }
-
-    .submit-btn:disabled {
-      opacity: .65;
-      cursor: wait;
-    }
-
-    /* SKRITO POLJE ZA SPAM */
-
-    .honeypot {
-      position: absolute;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    /* SKRITI IFRAME */
-
-    #skriti_odgovor {
+    .success-message {
       display: none;
-      width: 0;
-      height: 0;
-      border: 0;
+      padding: 18px;
+      margin-top: 18px;
+      border-radius: 8px;
+      background: rgba(25,211,197,.12);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-align: center;
+      font-weight: bold;
     }
 
     /* NOGA */
 
     footer {
-      padding: 28px 0;
+      padding: 30px 0;
       border-top: 1px solid var(--border);
-      text-align: center;
       color: var(--muted);
       font-size: 13px;
     }
 
-    footer strong {
-      color: var(--teal);
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    /* TELEFONI */
+    .footer-content strong {
+      color: var(--accent);
+    }
+
+    /* MOBILNA PRILAGODITEV */
 
     @media (max-width: 850px) {
-      .drone-art {
-        opacity: .2;
-        right: -80px;
+      .hero-decoration {
+        right: -100px;
+        opacity: .35;
       }
 
-      .service-grid {
+      .services-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .about-grid,
+      .about-content,
       .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .about-grid {
-        gap: 35px;
-      }
-
-      .contact-grid {
-        gap: 35px;
       }
     }
 
     @media (max-width: 600px) {
       nav {
-        min-height: 68px;
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .nav-links {
-        gap: 12px;
+        width: 100%;
+        gap: 17px;
+        flex-wrap: wrap;
       }
 
       .nav-links a {
         font-size: 12px;
       }
 
-      .nav-links li:nth-child(1),
-      .nav-links li:nth-child(2) {
-        display: none;
-      }
-
-      .nav-cta {
-        padding: 9px 11px;
+      .nav-links .nav-contact {
+        padding: 7px 10px;
       }
 
       .hero {
-        min-height: 570px;
+        min-height: 520px;
       }
 
       .hero-content {
         padding: 75px 0;
       }
 
-      h1 {
-        letter-spacing: -1px;
+      .hero p {
+        font-size: 16px;
       }
 
       section {
         padding: 65px 0;
       }
 
-      .service-grid {
+      .services-grid,
+      .pricing-grid {
         grid-template-columns: 1fr;
+      }
+
+      .service-card,
+      .price-card,
+      .contact-form,
+      .contact-details {
+        padding: 23px;
       }
 
       .form-row {
@@ -658,13 +667,12 @@
         gap: 0;
       }
 
-      .contact-form {
-        padding: 22px;
+      .about-content h2 {
+        font-size: 31px;
       }
 
-      .buttons .btn {
-        width: 100%;
-        text-align: center;
+      .about-visual {
+        min-height: 220px;
       }
     }
   </style>
@@ -673,430 +681,391 @@
 <body>
 
   <!-- NAVIGACIJA -->
-
   <header>
     <div class="container">
       <nav>
         <a href="#domov" class="logo">V ZRAKU<span>.SI</span></a>
 
-        <ul class="nav-links">
-          <li><a href="#domov">Domov</a></li>
-          <li><a href="#storitve">Storitve</a></li>
-          <li><a href="#o-nas">O nas</a></li>
-          <li><a href="#kontakt" class="nav-cta">Povpraševanje</a></li>
-        </ul>
+        <div class="nav-links">
+          <a href="#domov">Domov</a>
+          <a href="#storitve">Storitve</a>
+          <a href="#onas">O nas</a>
+          <a href="#cenik">Cenik</a>
+          <a href="#kontakt" class="nav-contact">Kontakt</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <!-- UVOD -->
-
   <main>
     <section class="hero" id="domov">
       <div class="container">
         <div class="hero-content">
-          <div class="eyebrow">Pogled iz nove perspektive</div>
+          <div class="eyebrow">Profesionalno snemanje z dronom</div>
 
           <h1>
-            Vaša zgodba.<br>
-            Naš pogled <span>iz zraka.</span>
+            Vaš pogled na svet<br>
+            <span>iz zraka.</span>
           </h1>
 
           <p>
-            Profesionalno fotografiranje, snemanje in pregledi
-            z dronom. Ujamemo perspektive, ki jih s tal ni mogoče videti.
-            Od poslovnih projektov do osebnih idej.
+            Zračno fotografiranje in snemanje v visoki ločljivosti.
+            Odkrijte novo perspektivo vašega objekta, nepremičnine ali projekta.
           </p>
 
-          <div class="buttons">
-            <a href="#kontakt" class="btn btn-primary">
-              Pošljite povpraševanje
-            </a>
-
-            <a href="#storitve" class="btn btn-outline">
-              Oglejte si storitve
-            </a>
-          </div>
+          <a href="#kontakt" class="btn">Pošljite povpraševanje →</a>
         </div>
       </div>
 
-      <div class="drone-art" aria-hidden="true">
-        <div class="drone-arm"></div>
-        <div class="drone-arm second"></div>
-        <div class="rotor r1"></div>
-        <div class="rotor r2"></div>
-        <div class="rotor r3"></div>
-        <div class="rotor r4"></div>
-        <div class="drone-body"></div>
-        <div class="drone-camera"></div>
+      <div class="hero-decoration">
+        <div class="drone-icon">✥</div>
       </div>
     </section>
 
     <!-- STORITVE -->
-
-    <section class="services" id="storitve">
+    <section id="storitve">
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow">Kaj ponujamo</div>
-          <h2>Storitve <span>iz zraka</span></h2>
+          <h2>Naše <span>storitve</span></h2>
           <p>
-            Z dronom poskrbimo za kakovostne posnetke,
-            pregledne prikaze in drugačen pogled na vaš projekt.
+            Poskrbimo za kakovostne zračne posnetke, prilagojene vašim željam in potrebam.
           </p>
         </div>
 
-        <div class="service-grid">
+        <div class="services-grid">
 
-          <article class="service-card">
+          <div class="service-card">
             <div class="service-icon">🏠</div>
-            <h3>Pregledi streh</h3>
+            <h3>Pregled streh</h3>
             <p>
-              Pregled streh po toči, neurjih in drugih poškodbah.
-              Posnetki težje dostopnih mest brez nepotrebnega
-              vzpenjanja na streho.
+              Detajlne fotografije strehe za pregled stanja, poškodb,
+              kritine in težje dostopnih mest.
             </p>
-          </article>
+          </div>
 
-          <article class="service-card">
+          <div class="service-card">
             <div class="service-icon">🏡</div>
             <h3>Nepremičnine</h3>
             <p>
-              Atraktivne fotografije in videoposnetki hiš,
-              zemljišč, objektov in okolice za predstavitev
-              in prodajo nepremičnin.
+              Privlačne fotografije in videoposnetki nepremičnin,
+              zemljišč in okolice iz zraka.
             </p>
-          </article>
+          </div>
 
-          <article class="service-card">
+          <div class="service-card">
             <div class="service-icon">🏢</div>
             <h3>Poslovni objekti</h3>
             <p>
-              Predstavitveni posnetki podjetij, poslovnih
-              prostorov, proizvodnih obratov in drugih objektov.
+              Predstavitveni posnetki poslovnih objektov,
+              proizvodnih obratov in drugih lokacij.
             </p>
-          </article>
+          </div>
 
-          <article class="service-card">
+          <div class="service-card">
             <div class="service-icon">📋</div>
-            <h3>Dokumentiranje škode</h3>
+            <h3>Dokumentiranje poškodb</h3>
             <p>
-              Fotografiranje in snemanje poškodb za
-              dokumentacijo, zavarovalniške postopke
-              in evidenco stanja objektov.
+              Zračno fotografiranje poškodb na objektih
+              za dokumentacijo in zavarovalniške namene.
             </p>
-          </article>
+          </div>
 
-          <article class="service-card">
+          <div class="service-card">
             <div class="service-icon">🎬</div>
-            <h3>Kreativni foto in video</h3>
+            <h3>Foto in video produkcija</h3>
             <p>
-              Dinamični zračni posnetki za promocijo,
-              družabna omrežja, dogodke, osebne projekte
-              in posebne ideje.
+              Kreativni zračni posnetki za promocijo,
+              predstavitve, družbena omrežja in osebne projekte.
             </p>
-          </article>
+          </div>
 
-          <article class="service-card">
+          <div class="service-card">
             <div class="service-icon">👥</div>
-            <h3>Skupinsko fotografiranje</h3>
+            <h3>Skupinske fotografije</h3>
             <p>
-              Posebne skupinske fotografije zaposlenih,
-              ekip, društev in skupin iz zanimive
-              ptičje perspektive.
+              Posebne skupinske fotografije in posnetki
+              dogodkov iz ptičje perspektive.
             </p>
-          </article>
+          </div>
 
         </div>
       </div>
     </section>
 
     <!-- O NAS -->
-
-    <section id="o-nas">
+    <section class="about" id="onas">
       <div class="container">
-        <div class="about-grid">
+        <div class="about-content">
 
-          <div class="about-text">
-            <div class="eyebrow">Zakaj V ZRAKU.SI</div>
-
-            <h2>
-              Več kot samo <span>pogled od zgoraj.</span>
-            </h2>
+          <div>
+            <div class="eyebrow">V ZRAKU.SI</div>
+            <h2>Nova perspektiva.<br><span style="color:var(--accent)">Nov pogled.</span></h2>
 
             <p>
-              Vsak projekt je drugačen. Zato se pred snemanjem
-              pogovorimo o vaših željah, namenu posnetkov in
-              končnem rezultatu, ki ga želite doseči.
+              Z uporabo sodobne tehnologije dronov ustvarjamo kakovostne
+              fotografije in videoposnetke iz zraka.
             </p>
 
             <p>
-              Ne glede na to, ali potrebujete pregled strehe,
-              predstavitev nepremičnine ali kreativen video,
-              skupaj poiščemo najboljšo rešitev.
+              Ne glede na to, ali potrebujete pregled strehe, fotografije
+              nepremičnine ali atraktiven promocijski video, se prilagodimo
+              vašemu projektu.
             </p>
 
-            <a href="#kontakt" class="btn btn-primary">
-              Dogovorimo se za projekt
-            </a>
+            <div class="benefits">
+              <div class="benefit"><span>✓</span> 4K video posnetki</div>
+              <div class="benefit"><span>✓</span> Detajlne fotografije</div>
+              <div class="benefit"><span>✓</span> Prilagodljiv pristop</div>
+              <div class="benefit"><span>✓</span> Ugodne cene</div>
+            </div>
           </div>
 
-          <div class="benefits">
+          <div class="about-visual">🚁</div>
 
-            <div class="benefit">
-              <div class="check">✓</div>
-              <div>
-                <strong>Prilagoditev vašim željam</strong>
-                <p>
-                  Vsako snemanje prilagodimo namenu in
-                  zahtevam posameznega projekta.
-                </p>
-              </div>
-            </div>
-
-            <div class="benefit">
-              <div class="check">✓</div>
-              <div>
-                <strong>Drugačna perspektiva</strong>
-                <p>
-                  Zračni posnetki omogočajo preglednejši
-                  prikaz objektov, okolice in prostora.
-                </p>
-              </div>
-            </div>
-
-            <div class="benefit">
-              <div class="check">✓</div>
-              <div>
-                <strong>Dogovor brez obveznosti</strong>
-                <p>
-                  Opišite svojo idejo in pripravili bomo
-                  predlog izvedbe.
-                </p>
-              </div>
-            </div>
-
-            <div class="benefit">
-              <div class="check">✓</div>
-              <div>
-                <strong>Tudi snemanje po meri</strong>
-                <p>
-                  Imate posebno zamisel? Z veseljem
-                  prisluhnemo tudi nestandardnim projektom.
-                </p>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- POZIV -->
-
-    <section class="cta-band">
+    <!-- CENIK -->
+    <section class="pricing" id="cenik">
       <div class="container">
-        <h2>Imate idejo? Poglejmo jo iz zraka.</h2>
-        <p>
-          Pošljite nam nekaj informacij o projektu.
-          Skupaj bomo našli pravo rešitev.
+
+        <div class="section-heading">
+          <div class="eyebrow">Pregled ponudbe</div>
+          <h2>Naš <span>cenik</span></h2>
+          <p>
+            Jasne in pregledne cene. Izberite storitev in preverite okvirno ceno.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- PREGLED STREHE S SLIDERJEM -->
+          <div class="price-card featured">
+            <div class="service-icon">🏠</div>
+
+            <h3>Vizualen pregled strehe</h3>
+
+            <p class="price-description">
+              Detajlne fotografije strehe iz zraka za pregled stanja
+              in dokumentiranje.
+            </p>
+
+            <div class="slider-area">
+              <div class="slider-label">
+                <label for="roofSlider">Površina strehe v m²</label>
+                <strong><span id="roofArea">150</span> m²</strong>
+              </div>
+
+              <input
+                type="range"
+                id="roofSlider"
+                min="50"
+                max="1000"
+                step="10"
+                value="150"
+              >
+
+              <div class="slider-limits">
+                <span>50 m²</span>
+                <span>1000 m²</span>
+              </div>
+            </div>
+
+            <div class="dynamic-price">
+              <span id="roofPrice">69</span> €
+              <small>/ pregled</small>
+            </div>
+
+            <p class="pricing-info">
+              Minimalna cena je 59 € pri površini do 100 m².
+              Nad 100 m² se cena povečuje linearno.
+            </p>
+          </div>
+
+          <!-- VIDEO -->
+          <div class="price-card">
+            <div class="service-icon">🎥</div>
+
+            <h3>4K video snemanje iz zraka</h3>
+
+            <p class="price-description">
+              1 ura snemanja 4K videa iz zraka.
+              Vključeni so neobdelani video posnetki.
+            </p>
+
+            <div class="price">
+              109 € <small>/ ura</small>
+            </div>
+
+            <p class="price-note">Neobdelan video.</p>
+          </div>
+
+          <!-- FOTOGRAFIRANJE -->
+          <div class="price-card">
+            <div class="service-icon">📸</div>
+
+            <h3>Fotografiranje iz zraka</h3>
+
+            <p class="price-description">
+              1 ura fotografiranja iz zraka.
+              Prejmete neobdelane fotografije.
+            </p>
+
+            <div class="price">
+              89 € <small>/ ura</small>
+            </div>
+
+            <p class="price-note">Neobdelane fotografije.</p>
+          </div>
+
+        </div>
+
+        <p class="pricing-bottom">
+          Cene so informativne. Končna cena je lahko odvisna od lokacije,
+          zahtevnosti in pogojev izvedbe.
         </p>
-        <a href="#kontakt" class="btn btn-primary">
-          Pošljite povpraševanje
-        </a>
+
       </div>
     </section>
 
     <!-- KONTAKT -->
-
     <section class="contact" id="kontakt">
       <div class="container">
 
         <div class="section-heading">
           <div class="eyebrow">Stopimo v stik</div>
-          <h2>Pošljite <span>povpraševanje</span></h2>
+          <h2>Kontaktirajte <span>nas</span></h2>
           <p>
-            Opišite, kaj potrebujete. Ni treba, da imate
-            vse podrobnosti že pripravljene.
+            Imate vprašanje ali potrebujete ponudbo? Z veseljem vam pomagamo.
           </p>
         </div>
 
         <div class="contact-grid">
 
-          <div class="contact-info">
-            <h3>Imate vprašanje ali idejo?</h3>
+          <!-- KONTAKTNI PODATKI -->
+          <div class="contact-details">
+            <h3>Kontaktni podatki</h3>
 
-            <p>
-              Pišite nam in predstavite svoj projekt.
-              Odgovorili vam bomo in se dogovorili
-              o možnostih izvedbe.
-            </p>
-
-            <div class="contact-detail">
-              <strong>E-pošta</strong>
-              <a href="mailto:xraptor55@gmail.com">
-                xraptor55@gmail.com
-              </a>
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <a href="mailto:vzraku@gmail.si">vzraku@gmail.si</a>
             </div>
 
-            <div class="contact-detail">
-              <strong>Področje dela</strong>
-              <span>Po dogovoru</span>
+            <div class="contact-item">
+              <div class="contact-label">Telefon</div>
+              <a href="tel:+38641999999">+386 41 999 999</a>
             </div>
 
-            <div class="contact-detail">
-              <strong>Snemanje po meri</strong>
-              <span>
-                Sprejemamo tudi posebne in individualne projekte.
-              </span>
+            <div class="contact-item">
+              <div class="contact-label">Spletna stran</div>
+              <a href="#domov">www.vzraku.si</a>
             </div>
+
           </div>
 
-          <!-- SKRITI IFRAME: stran ostane odprta -->
-          <iframe
-            name="skriti_odgovor"
-            id="skriti_odgovor"
-            title="Odgovor obrazca"
-          ></iframe>
+          <!-- OBRAZEC -->
+          <div class="contact-form">
+            <h3>Pošljite povpraševanje</h3>
 
-          <form
-            class="contact-form"
-            id="povprasevanje"
-            action="https://script.google.com/macros/s/AKfycbwrEFWuDS_xHNO1gfG8oov_CbXcH7DY45fVyCPbgwRnmc2GXfRNBuub9KYZpV6L1rZyiw/exec"
-            method="POST"
-            target="skriti_odgovor"
-            accept-charset="UTF-8"
-          >
-
-            <h3>Opišite svoj projekt</h3>
-
-            <p class="form-intro">
-              Polja z zvezdico (*) so obvezna.
-            </p>
-
-            <!-- POTRDITVENO SPOROČILO -->
-
-            <div
-              id="uspesno-sporocilo"
-              class="form-success"
-              role="status"
-              aria-live="polite"
+            <form
+              id="contactForm"
+              action="https://script.google.com/macros/s/AKfycbwrEFWuDS_xHNO1gfG8oov_CbXcH7DY45fVyCPbgwRnmc2GXfRNBuub9KYZpV6L1rZyiw/exec"
+              method="POST"
+              target="skriti_odgovor"
             >
-              <strong>✓ Povpraševanje uspešno poslano!</strong>
-              <p>
-                Hvala za vaše povpraševanje. Kmalu vas bomo kontaktirali.
-              </p>
-            </div>
 
-            <!-- MOREBITNA NAPAKA -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ime">Ime in priimek *</label>
+                  <input
+                    type="text"
+                    id="ime"
+                    name="ime"
+                    placeholder="Vaše ime"
+                    required
+                  >
+                </div>
 
-            <div
-              id="napaka-sporocilo"
-              class="form-error"
-              role="alert"
-            >
-              Pri oddaji je prišlo do težave. Poskusite znova
-              ali nam pišite na xraptor55@gmail.com.
-            </div>
-
-            <!-- SKRITO POLJE ZA SPAM -->
-
-            <div class="honeypot" aria-hidden="true">
-              <label for="website">To polje pustite prazno</label>
-              <input
-                type="text"
-                id="website"
-                name="_honey"
-                tabindex="-1"
-                autocomplete="off"
-              >
-            </div>
-
-            <div class="form-row">
-
-              <div class="form-group">
-                <label for="ime">Ime in priimek *</label>
-                <input
-                  type="text"
-                  id="ime"
-                  name="ime"
-                  placeholder="Vaše ime"
-                  autocomplete="name"
-                  required
-                >
+                <div class="form-group">
+                  <label for="email">E-pošta *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="vas@email.si"
+                    required
+                  >
+                </div>
               </div>
 
               <div class="form-group">
-                <label for="email">E-pošta *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="vas@email.si"
-                  autocomplete="email"
-                  required
-                >
-              </div>
-
-            </div>
-
-            <div class="form-row">
-
-              <div class="form-group">
-                <label for="telefon">Telefon</label>
+                <label for="telefon">Telefonska številka</label>
                 <input
                   type="tel"
                   id="telefon"
                   name="telefon"
-                  placeholder="Vaša telefonska številka"
-                  autocomplete="tel"
+                  placeholder="+386 ..."
                 >
               </div>
 
               <div class="form-group">
-                <label for="storitev">Vrsta storitve</label>
+                <label for="storitev">Izberite storitev</label>
                 <select id="storitev" name="storitev">
-                  <option value="">Izberite storitev</option>
-                  <option value="Pregled strehe">Pregled strehe</option>
+                  <option value="Vizualen pregled strehe">Vizualen pregled strehe</option>
+                  <option value="4K video snemanje">4K video snemanje</option>
+                  <option value="Fotografiranje iz zraka">Fotografiranje iz zraka</option>
                   <option value="Nepremičnine">Nepremičnine</option>
                   <option value="Poslovni objekti">Poslovni objekti</option>
-                  <option value="Dokumentiranje škode">Dokumentiranje škode</option>
-                  <option value="Kreativni foto in video">Kreativni foto in video</option>
-                  <option value="Skupinsko fotografiranje">Skupinsko fotografiranje</option>
-                  <option value="Snemanje po meri">Snemanje po meri</option>
                   <option value="Drugo">Drugo</option>
                 </select>
               </div>
 
-            </div>
+              <div class="form-group">
+                <label for="sporocilo">Vaše sporočilo *</label>
+                <textarea
+                  id="sporocilo"
+                  name="sporocilo"
+                  placeholder="Opišite, kaj potrebujete ..."
+                  required
+                ></textarea>
+              </div>
 
-            <div class="form-group">
-              <label for="sporocilo">Opis projekta *</label>
-              <textarea
-                id="sporocilo"
-                name="sporocilo"
-                placeholder="Opišite, kaj bi želeli fotografirati ali posneti, kje se projekt nahaja in kakšen rezultat pričakujete ..."
-                required
-              ></textarea>
-            </div>
+              <label class="consent">
+                <input type="checkbox" name="soglasje" value="Da" required>
+                <span>
+                  Strinjam se, da se moji podatki uporabijo za odgovor
+                  na poslano povpraševanje.
+                </span>
+              </label>
 
-            <label class="consent">
-              <input
-                type="checkbox"
-                name="soglasje"
-                value="Da"
-                required
-              >
-              <span>
-                Strinjam se, da se moji podatki uporabijo
-                za odgovor na poslano povpraševanje.
-              </span>
-            </label>
+              <!-- Skrito polje proti neželeni pošti -->
+              <div style="position:absolute;left:-9999px" aria-hidden="true">
+                <label for="honey">Ne izpolnjujte tega polja</label>
+                <input type="text" id="honey" name="_honey" tabindex="-1" autocomplete="off">
+              </div>
 
-            <button type="submit" class="submit-btn">
-              POŠLJI POVPRAŠEVANJE
-            </button>
+              <button type="submit" class="btn" id="submitBtn">
+                Pošlji povpraševanje →
+              </button>
 
-          </form>
+              <div class="success-message" id="successMessage">
+                ✓ Povpraševanje uspešno poslano! Hvala za vaše povpraševanje.
+                Kmalu vas bomo kontaktirali.
+              </div>
+
+            </form>
+
+            <iframe
+              name="skriti_odgovor"
+              id="skriti_odgovor"
+              style="display:none"
+              title="Odgovor obrazca"
+            ></iframe>
+
+          </div>
 
         </div>
       </div>
@@ -1104,80 +1073,96 @@
   </main>
 
   <!-- NOGA -->
-
   <footer>
     <div class="container">
-      © <span id="leto"></span>
-      <strong>V ZRAKU.SI</strong> |
-      Pogled iz nove perspektive.
+      <div class="footer-content">
+        <div>© <span id="year"></span> <strong>V ZRAKU.SI</strong> – Vse pravice pridržane.</div>
+        <div>Zračno fotografiranje in snemanje</div>
+      </div>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
-
   <script>
-    document.getElementById("leto").textContent =
-      new Date().getFullYear();
+    // DINAMIČNI IZRAČUN CENE STREHE
 
-    const obrazec = document.getElementById("povprasevanje");
-    const sporocilo = document.getElementById("uspesno-sporocilo");
-    const napaka = document.getElementById("napaka-sporocilo");
-    const gumb = obrazec.querySelector('button[type="submit"]');
-    const iframe = document.getElementById("skriti_odgovor");
+    const roofSlider = document.getElementById("roofSlider");
+    const roofArea = document.getElementById("roofArea");
+    const roofPrice = document.getElementById("roofPrice");
 
-    let oddajaVTeKu = false;
-    let casovnik = null;
+    function updateRoofPrice() {
+      const area = Number(roofSlider.value);
 
-    obrazec.addEventListener("submit", function(event) {
+      // 100 m² = 59 €
+      // 200 m² = 79 €
+      // Vsak dodatni m² nad 100 m² poveča ceno za 0,20 €.
+      // Minimalna cena je 59 €.
 
-      if (!obrazec.reportValidity()) {
+      let price = 59;
+
+      if (area > 100) {
+        price = 59 + (area - 100) * 0.20;
+      }
+
+      roofArea.textContent = area;
+      roofPrice.textContent = Math.round(price);
+    }
+
+    roofSlider.addEventListener("input", updateRoofPrice);
+
+    updateRoofPrice();
+
+
+    // POŠILJANJE OBRAZCA BREZ ZAPUSTITVE SPLETNE STRANI
+
+    const contactForm = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const successMessage = document.getElementById("successMessage");
+    const hiddenFrame = document.getElementById("skriti_odgovor");
+
+    let formSending = false;
+
+    contactForm.addEventListener("submit", function(event) {
+      if (formSending) {
         event.preventDefault();
         return;
       }
 
-      if (oddajaVTeKu) {
-        event.preventDefault();
+      if (!contactForm.checkValidity()) {
         return;
       }
 
-      oddajaVTeKu = true;
+      formSending = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Pošiljanje ...";
+      submitBtn.style.opacity = "0.65";
 
-      sporocilo.style.display = "none";
-      napaka.style.display = "none";
-
-      gumb.disabled = true;
-      gumb.textContent = "POŠILJANJE ...";
+      successMessage.style.display = "none";
 
       // Obrazec se pošlje v skriti iframe.
-      // Glavna stran ostane odprta.
+      // Obiskovalec ostane na glavni spletni strani.
 
-      clearTimeout(casovnik);
+      setTimeout(function() {
+        successMessage.style.display = "block";
+        contactForm.reset();
 
-      // Čas za pošiljanje podatkov Googlu.
-      casovnik = setTimeout(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Pošlji povpraševanje →";
+        submitBtn.style.opacity = "1";
 
-        sporocilo.style.display = "block";
+        formSending = false;
 
-        sporocilo.scrollIntoView({
+        successMessage.scrollIntoView({
           behavior: "smooth",
-          block: "center"
+          block: "nearest"
         });
-
-        obrazec.reset();
-
-        gumb.disabled = false;
-        gumb.textContent = "POŠLJI POVPRAŠEVANJE";
-
-        oddajaVTeKu = false;
-
       }, 1800);
-
     });
 
-    // Če se skriti iframe naloži z odgovorom, to pomeni,
-    // da je bila zahteva obdelana. Ne razkriva pa nam
-    // zanesljivo, ali je e-pošta že prispela v nabiralnik.
 
+    // LETNICA V NOGI
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
 
 </body>
